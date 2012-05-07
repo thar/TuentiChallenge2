@@ -4,7 +4,6 @@
 #e-mail: miguel.a.j82@gmail.com
 
 import sys
-from time import sleep
 
 def find_gcf(dividend,divisor):
     reminder=-1
@@ -23,9 +22,6 @@ def find_lcm(x,y,gcf):
 
 lines=sys.stdin.readlines()
 nCases=int(lines.pop(0).strip())
-
-#lines=[]
-#lines.append('100 50')
 
 lineCount=1
 for line in lines:
@@ -69,8 +65,6 @@ for line in lines:
     nChanges=[]
     rs=1
 
-    #print 'comienzo la busqueda'
-
     checked=[]
     for i in range(nCards):
         nCh=0
@@ -79,19 +73,15 @@ for line in lines:
             checked.append(su)
             nCh=nCh+1
             su=su+indexChanges[su]
-            #print len(checked)
         if nCh>rs:
             dividend=nCh
             divisor=rs
         else:
             dividend=rs
             divisor=nCh
-        #print 'i',
+
         gcf=find_gcf(dividend,divisor)
         rs=find_lcm(nCh,rs,gcf)
-        #print 'o'
-        #if i%100 is 0:
-            #print i
 
     print 'Case #%d: %d' % (lineCount,rs)
     lineCount+=1
